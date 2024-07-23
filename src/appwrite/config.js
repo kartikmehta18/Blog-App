@@ -123,11 +123,32 @@ export class Services{
         }
     }
 
+//    getFilePreview(fileId){
+//         try {
+//              this.bucket.getFilePreview(
+//                 conf.appwriteBucketid,
+//                 fileId
+//              )
+//         } catch (error) {
+//             console.log(error);
+//             return false
+//         }
+//     }
+
+
     getFilePreview(fileId){
       return this.bucket.getFilePreview(
         conf.appwriteBucketid,
-            fileId 
+        fileId 
       )  
+    }
+
+    getFileView(fileId){
+        return this.bucket.getFileView(
+            conf.appwriteBucketid,
+            fileId
+        )
+
     }
 }
 
