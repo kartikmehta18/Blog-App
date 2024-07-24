@@ -12,7 +12,7 @@ const Input =React.forwardRef(function Input ({
         <div className="w-full">
             {label && <label
             className="inline-block mb-1 pl-1"   
-            htmlFor= {props.id}>
+            htmlFor= {id}>
              {label} 
                </label>
                }
@@ -22,6 +22,8 @@ const Input =React.forwardRef(function Input ({
                 focus:bg-gray-200 w-full
                 ${className}`}
                ref={ref}
+               {...props}
+               id={id}
                 />
         </div>
     )
