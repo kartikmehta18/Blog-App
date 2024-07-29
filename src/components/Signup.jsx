@@ -4,7 +4,7 @@ import { useNavigate , Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import {Button ,Input, Logo} from './index'
 import { useForm } from 'react-hook-form'
-import { Login } from '../store/authSlice'
+import { login } from '../store/authSlice'
 function Signup() {
     const navigate =useNavigate()
     const [error , setError]=useState("")
@@ -13,16 +13,18 @@ function Signup() {
 
     const create = async(data) => {
         setError("")
+        
         try {
             const userData = await authService.createAccount(data)
             if(userData){
                 const userData = await authService.getCurrentUser()
-                if(userData) dispatch(Login(userData))
+                if(userData) dispatch(login(userData))
                     navigate("/")
             }
         } catch (error) {
             setError(error.message)
         }
+
     }
   return (
     <div className="flex items-center justify-center">
